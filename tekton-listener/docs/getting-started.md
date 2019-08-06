@@ -49,6 +49,13 @@ Once the system is built, we expect to be able to:
   - `docker login` needs to succeed
 - `ko` installed
   - `go get github.com/google/ko/cmd/ko`
+  
+*_Peishu's Notes:_ Download & install envsubst:*
+```
+curl -L https://github.com/a8m/envsubst/releases/download/v1.1.0/envsubst-`uname -s`-`uname -m` -o envsubst
+chmod +x envsubst
+sudo mv envsubst /usr/local/bin
+```
 
 ## Experimental Resources
 
@@ -68,13 +75,18 @@ Until an official docker repository exists for experimental images, we will need
 
 We need to export our registry for `ko` to use
 
-` export KO_DOCKER_REPO=docker.io/iancoffey`
+` export KO_DOCKER_REPO=docker.io/peishu`
 
 Now we can use `ko apply` to build, upload and install the components.
 
 `ko apply -f config`
 
 If this succeeds, you should be ready to go.
+
+*_Peishu's Notes:_*
+```
+$GOPATH/ko apply -f config
+```
 
 ### Experimental Resources Explained
 
